@@ -1,11 +1,10 @@
+import 'package:expense_tracker/utils/index.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:expense_tracker/domain/expenses/enums/index.dart';
 
 const uuid = Uuid();
-final formatter = DateFormat.yMd();
 
 const Map<Category, IconData> categoryIcons = {
   Category.food: Icons.lunch_dining,
@@ -29,7 +28,7 @@ class Expense {
   final Category category;
 
   String get formattedDate {
-    return formatter.format(date);
+    return DateFormatter.formatDate(date);
   }
 
   IconData get categoryIcon {
