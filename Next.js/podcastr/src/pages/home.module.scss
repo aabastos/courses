@@ -1,0 +1,33 @@
+.home {
+    padding: 2rem 4rem;
+    height: calc(100vh - 6.5rem);
+    overflow-y: scroll;
+}
+
+.latestEpisodes {
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    
+        margin-top: 30px;
+    }
+}
+
+.allEpisodes {
+    margin-top: 2rem;
+
+    table {
+        width: 100%;
+    }
+
+    th {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--gray-100);
+
+        color: var(--gray-200);
+        text-transform: uppercase;
+        font: 500 0.75rem Lexend, sans-serif;
+        text-align: left;
+    }
+}
