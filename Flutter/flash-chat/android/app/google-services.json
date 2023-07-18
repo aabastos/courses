@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "308045798174",
+    "project_id": "flash-chat-aa1e2",
+    "storage_bucket": "flash-chat-aa1e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308045798174:android:82d0863e3f3286f6ca070f",
+        "android_client_info": {
+          "package_name": "com.abastos.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308045798174-v6k83og3rkcp5bv8pb6bm37qdun0lqb0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnwXHWOr_DNhzHrS8zvLJbW6o2Jy0hlO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308045798174-v6k83og3rkcp5bv8pb6bm37qdun0lqb0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
