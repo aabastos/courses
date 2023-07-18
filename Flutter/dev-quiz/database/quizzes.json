@@ -1,0 +1,64 @@
+[
+    {
+        "title": "Quiz 1",
+        "image": "blocks",
+        "questionAnswered": 0,
+        "level": "easy",
+        "questions": [
+            {
+                "title": "Questão 1",
+                "answers": [
+                    {
+                        "title": "Resposta 1",
+                        "isRight": true
+                    },
+                    {
+                        "title": "Resposta 2"
+                    },
+                    {
+                        "title": "Resposta 3"
+                    },
+                    {
+                        "title": "Resposta 4"
+                    }
+                ]
+            },
+            {
+                "title": "Questão 2",
+                "answers": [
+                    {
+                        "title": "Resposta 5"
+                    },
+                    {
+                        "title": "Resposta 6"
+                    },
+                    {
+                        "title": "Resposta 7",
+                        "isRight": true
+                    },
+                    {
+                        "title": "Resposta 8"
+                    }
+                ]
+            },
+            {
+                "title": "Questão 3",
+                "answers": [
+                    {
+                        "title": "Resposta 9"
+                    },
+                    {
+                        "title": "Resposta 10",
+                        "isRight": true
+                    },
+                    {
+                        "title": "Resposta 11"
+                    },
+                    {
+                        "title": "Resposta 12"
+                    }
+                ]
+            }
+        ]
+    }
+]
