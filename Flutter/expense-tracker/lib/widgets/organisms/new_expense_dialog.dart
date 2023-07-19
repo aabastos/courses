@@ -1,5 +1,6 @@
 import 'package:expense_tracker/domain/expenses/index.dart';
 import 'package:expense_tracker/utils/index.dart';
+import 'package:expense_tracker/widgets/atoms/dialog/error_dialog/error_dialog.dart';
 import 'package:flutter/material.dart';
 
 class NewExpenseDialog extends StatefulWidget {
@@ -54,7 +55,27 @@ class _NewExpenseDialogState extends State<NewExpenseDialog> {
     });
   }
 
+  bool validateValues() {
+    final title = titleTextFieldController.text;
+    final amount = double.tryParse(amountTextFieldController.text);
+
+    if (title.trim().isEmpty || amount == null || amount <= 0) {
+      showDialog(
+        context: context,
+        builder: (ctx) => const ErrorDialog(
+          title: 'Invalid values',
+          description:
+              'Please make sure a valid title, amount, date and category was entered.',
+        ),
+      );
+
+      return false;
+    }
+    return true;
+  }
+
   void handleSaveExpense() {
+    if (!validateValues()) return;
     Navigator.pop(context);
   }
 
