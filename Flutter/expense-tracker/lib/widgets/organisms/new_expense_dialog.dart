@@ -4,7 +4,8 @@ import 'package:expense_tracker/widgets/atoms/dialog/error_dialog/error_dialog.d
 import 'package:flutter/material.dart';
 
 class NewExpenseDialog extends StatefulWidget {
-  const NewExpenseDialog({super.key});
+  final void Function(Expense expense) onAddExpense;
+  const NewExpenseDialog({super.key, required this.onAddExpense});
 
   @override
   State<NewExpenseDialog> createState() => _NewExpenseDialogState();
@@ -76,6 +77,12 @@ class _NewExpenseDialogState extends State<NewExpenseDialog> {
 
   void handleSaveExpense() {
     if (!validateValues()) return;
+    widget.onAddExpense(Expense(
+      title: titleTextFieldController.text,
+      amount: double.parse(amountTextFieldController.text),
+      date: selectedDate!,
+      category: selectedCategory,
+    ));
     Navigator.pop(context);
   }
 

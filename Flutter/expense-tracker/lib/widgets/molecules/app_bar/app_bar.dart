@@ -1,8 +1,10 @@
+import 'package:expense_tracker/domain/expenses/index.dart';
 import 'package:expense_tracker/widgets/organisms/new_expense_dialog.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
-  const AppBarWidget({super.key});
+  final void Function(Expense expense) onAddExpense;
+  const AppBarWidget({super.key, required this.onAddExpense});
 
   @override
   State<AppBarWidget> createState() => _AppBarWidgetState();
@@ -15,7 +17,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
   void handleAddExpensePress() {
     showModalBottomSheet(
       context: context,
-      builder: (ctx) => const NewExpenseDialog(),
+      builder: (ctx) => NewExpenseDialog(onAddExpense: widget.onAddExpense),
     );
   }
 

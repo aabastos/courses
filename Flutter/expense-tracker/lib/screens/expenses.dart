@@ -12,12 +12,26 @@ class Expenses extends StatefulWidget {
 
 class _ExpensesState extends State<Expenses> {
   final ExpensesRepository repository = ExpensesRepository();
+  List<Expense> expenses = [];
+
+  @override
+  initState() {
+    super.initState();
+    expenses = repository.getExpenses();
+  }
+
+  void handleAddExpense(Expense expense) {
+    repository.addExpense(expense);
+
+    setState(() {
+      expenses = repository.getExpenses();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<Expense> expenses = repository.getExpenses();
-
     return Scaffold(
-      appBar: const AppBarWidget(),
+      appBar: AppBarWidget(onAddExpense: handleAddExpense),
       body: Column(
         children: [
           Expanded(child: ExpensesList(expenses: expenses)),

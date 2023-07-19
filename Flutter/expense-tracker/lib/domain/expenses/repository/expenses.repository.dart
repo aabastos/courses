@@ -5,4 +5,8 @@ class ExpensesRepository {
   List<Expense> getExpenses() {
     return service.getAll();
   }
+
+  void addExpense(Expense expense) {
+    service.createExpense(expense);
+  }
 }

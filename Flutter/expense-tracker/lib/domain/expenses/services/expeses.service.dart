@@ -20,4 +20,8 @@ class ExpensesService {
   List<Expense> getAll() {
     return expenses;
   }
+
+  void createExpense(Expense expense) {
+    expenses.add(expense);
+  }
 }
