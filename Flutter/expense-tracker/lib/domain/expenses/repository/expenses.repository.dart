@@ -9,4 +9,8 @@ class ExpensesRepository {
   void addExpense(Expense expense) {
     service.createExpense(expense);
   }
+
+  void removeExpense(Expense expense) {
+    service.deleteExpense(expense);
+  }
 }

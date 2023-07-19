@@ -24,4 +24,8 @@ class ExpensesService {
   void createExpense(Expense expense) {
     expenses.add(expense);
   }
+
+  void deleteExpense(Expense expense) {
+    expenses.remove(expense);
+  }
 }

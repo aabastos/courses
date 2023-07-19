@@ -17,15 +17,35 @@ class _ExpensesState extends State<Expenses> {
   @override
   initState() {
     super.initState();
-    expenses = repository.getExpenses();
+    refreshExpensesList();
+  }
+
+  void refreshExpensesList() {
+    setState(() {
+      expenses = repository.getExpenses();
+    });
   }
 
   void handleAddExpense(Expense expense) {
     repository.addExpense(expense);
+    refreshExpensesList();
+  }
 
-    setState(() {
-      expenses = repository.getExpenses();
-    });
+  void handleUndoRemoveExpense(Expense expense) {
+    repository.addExpense(expense);
+    refreshExpensesList();
+  }
+
+  void handleRemoveExpense(Expense expense) {
+    repository.removeExpense(expense);
+    refreshExpensesList();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: const Text('Expense removed!'),
+      action: SnackBarAction(
+        onPressed: () => handleUndoRemoveExpense(expense),
+        label: 'Undo',
+      ),
+    ));
   }
 
   @override
@@ -34,7 +54,12 @@ class _ExpensesState extends State<Expenses> {
       appBar: AppBarWidget(onAddExpense: handleAddExpense),
       body: Column(
         children: [
-          Expanded(child: ExpensesList(expenses: expenses)),
+          Expanded(
+            child: ExpensesList(
+              expenses: expenses,
+              onRemoveExpense: handleRemoveExpense,
+            ),
+          ),
         ],
       ),
     );
