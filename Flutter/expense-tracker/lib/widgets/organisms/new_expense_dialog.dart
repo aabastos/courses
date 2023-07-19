@@ -1,3 +1,4 @@
+import 'package:expense_tracker/domain/expenses/index.dart';
 import 'package:expense_tracker/utils/index.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,17 @@ class _NewExpenseDialogState extends State<NewExpenseDialog> {
   TextEditingController titleTextFieldController = TextEditingController();
   TextEditingController amountTextFieldController = TextEditingController();
 
+  final List<DropdownMenuItem> categoryOptions = Category.values
+      .map(
+        (category) => DropdownMenuItem(
+          value: category,
+          child: Text(category.name.toString().toUpperCase()),
+        ),
+      )
+      .toList();
+
   DateTime? selectedDate;
+  Category selectedCategory = Category.leisure;
 
   @override
   void dispose() {
@@ -33,6 +44,13 @@ class _NewExpenseDialogState extends State<NewExpenseDialog> {
 
     setState(() {
       selectedDate = pickedDate;
+    });
+  }
+
+  void handleCategorySelected(dynamic value) {
+    if (value == null) return;
+    setState(() {
+      selectedCategory = value;
     });
   }
 
@@ -83,15 +101,26 @@ class _NewExpenseDialogState extends State<NewExpenseDialog> {
               ),
             ],
           ),
+          const SizedBox(height: 16),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {},
-                child: const Text('Cancel'),
+              DropdownButton(
+                value: selectedCategory,
+                items: categoryOptions,
+                onChanged: handleCategorySelected,
               ),
-              ElevatedButton(
-                onPressed: handleSaveExpense,
-                child: const Text('Save Expense'),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Cancel'),
+                  ),
+                  ElevatedButton(
+                    onPressed: handleSaveExpense,
+                    child: const Text('Save Expense'),
+                  ),
+                ],
               ),
             ],
           ),
