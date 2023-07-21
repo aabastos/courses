@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meals/theme/index.dart';
+import 'package:meals/screens/categories/index.dart';
+import 'package:meals/themes/index.dart';
 
 void main() {
   runApp(const App());
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: MainTheme.lightTheme,
-      home: const Scaffold(),
+      home: CategoriesScreen(),
     );
   }
 }
